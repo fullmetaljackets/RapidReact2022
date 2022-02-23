@@ -128,8 +128,8 @@ xbox_LeftBumper.whenPressed(new Intake_Actuate(false, m_intake) ,true);
     SmartDashboard.putData("Xbox_LeftBumper",new Intake_Actuate(false, m_intake) );
 
 final JoystickButton xbox_RightBumper = new JoystickButton(xboxCoDiver, XboxController.Button.kRightBumper.value);        
-xbox_RightBumper.whenPressed(new Intake_Actuate(false, m_intake) ,true);
-    SmartDashboard.putData("Xbox_RightBumper",new Intake_Actuate(false, m_intake) );
+xbox_RightBumper.whenPressed(new Intake_Actuate(true, m_intake) ,true);
+    SmartDashboard.putData("Xbox_RightBumper",new Intake_Actuate(true, m_intake) );
 
 final JoystickButton xbox_Button_B = new JoystickButton(xboxCoDiver, XboxController.Button.kB.value);        
 xbox_Button_B.whileHeld(new Feeder_Run(-.3, m_feeder) ,true);
