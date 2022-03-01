@@ -40,22 +40,12 @@ public class Feeder_Trigger_Run_FWD extends SequentialCommandGroup {
         //          new command3(argsN, subsystem)
         //      )    
         //  );
-            /**
-             * sequential Command:
-             *      extend Intake
-             *      Spin the flywheel .whithTimout(7)
-             *      Wait 2 sec
-             *      parall command
-             *          Feeder_Run()
-             *          Trigger_Run()
-             * 
-             * drive forward 24 inches
-             */
-            
+           
 
-
-            new Feeder_Run(.5, feeder),
-            new Trigger_Run(.5, trigger)
+            parallel(
+                    new Feeder_Run(.5, feeder),
+                    new Trigger_Run(.5, trigger)
+            )
 
         );
     }
