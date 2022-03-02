@@ -200,7 +200,7 @@ drive_Shift = new DoubleSolenoid(20, PneumaticsModuleType.REVPH, 0, 1);
         // This method will be called once per scheduler run
         SmartDashboard.putNumber("Right Encoder Rotations", my_getRight_Motor_Rotation_Value());
         SmartDashboard.putNumber("Right Encoder Inches", my_get_Distance_Inch());
-
+        differentialDrive1.feed();
 
     }
 

@@ -22,21 +22,26 @@ public class Auto_Two_Ball extends SequentialCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-      parallel(new TopShooter_Run(.7, -.7, m_shooter).withTimeout(5),
+      parallel(new TopShooter_Run(.58, .60, m_shooter).withTimeout(5),
                 sequence(new WaitCommand(2),
                          new Trigger_Run(1, m_trigger).withTimeout(3)
                         )                
                 ),
-              new ParallelDeadlineGroup(new DriveDistance_Inch(18, 0.5, 0.0, m_driveTrain), 
-              new Intake_Cargo_Run(.7, m_intake)),
-              parallel(new DriveDistance_Inch(18, -0.5, 0.0, m_driveTrain),
-                      parallel(new TopShooter_Run(.7, -.7, m_shooter).withTimeout(5),
-                              sequence(new WaitCommand(2),
-                              new Trigger_Run(1, m_trigger).withTimeout(3)
+              new ParallelDeadlineGroup(new DriveDistance_Inch(100, 0.5, 0.0, m_driveTrain), 
+              new Intake_Cargo_Run(-.7, m_intake)),
+              parallel(new DriveDistance_Inch(100, -0.5, 0.0, m_driveTrain),
+                     
+                     
+                      parallel(new Intake_Cargo_Run(-.7, m_intake).withTimeout(3),
+                              new Feeder_Run(1, m_feeder).withTimeout(3),
+                      parallel(new TopShooter_Run(.58, .60, m_shooter).withTimeout(6),
+                              sequence(new WaitCommand(3),
+                              (new Trigger_Run(1, m_trigger).withTimeout(3)
                               )                
               )  
               )
-              
+              ) 
+              )   
         );
     }
 

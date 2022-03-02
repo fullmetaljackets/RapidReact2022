@@ -43,13 +43,13 @@ public class Auto_Shoot_N_Drive extends SequentialCommandGroup {
         //          new command3(argsN, subsystem)
         //      )    
         //  );
-        parallel(new TopShooter_Run(.7, -.7, shooter).withTimeout(7),
+        parallel(new TopShooter_Run(.58, .60, shooter).withTimeout(7),
                 sequence(new WaitCommand(3),
                          new Trigger_Run(1, trigger).withTimeout(4)
                         )                
                 ),
         
-                new DriveDistance_Inch(18, 0.5, 0.0, driveTrain)
+                new DriveDistance_Inch(50, 0.5, 0.0, driveTrain)
         );
 
         
